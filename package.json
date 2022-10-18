@@ -8,9 +8,10 @@
   ],
   "scripts": {
     "build": "turbo run build",
-    "dev": "turbo run dev --parallel",
+    "dev": "NEXT_PUBLIC_E2E_TEST=false turbo run dev --parallel --no-cache",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "db:migrate": "cd packages/db && pnpm migration:deploy"
   },
   "devDependencies": {
     "eslint-config-custom": "workspace:*",
